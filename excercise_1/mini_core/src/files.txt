@@ -1,0 +1,14 @@
+blob.cpp
+deserializer.cpp
+id_context.cpp
+identifiable.cpp
+id_placeholder.cpp
+object_data.cpp
+property_container.cpp
+property_container_manager.cpp
+property.cpp
+property_eigen.cpp
+property_identifiable.cpp
+serializable.cpp
+serialization_context.cpp
+serializer.cpp
