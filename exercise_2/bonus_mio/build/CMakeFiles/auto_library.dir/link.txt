@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libauto_library.so -o libauto_library.so CMakeFiles/auto_library.dir/Auto.c.o 

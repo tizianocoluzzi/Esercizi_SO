@@ -1,0 +1,4 @@
+/home/tiziano/SO/esercitazioni_SO/exercise_2/bonus_mio/build/CMakeFiles/veicolo_library.dir
+/home/tiziano/SO/esercitazioni_SO/exercise_2/bonus_mio/build/CMakeFiles/main.dir
+/home/tiziano/SO/esercitazioni_SO/exercise_2/bonus_mio/build/CMakeFiles/edit_cache.dir
+/home/tiziano/SO/esercitazioni_SO/exercise_2/bonus_mio/build/CMakeFiles/rebuild_cache.dir

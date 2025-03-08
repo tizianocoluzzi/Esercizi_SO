@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,liblinked_list_library.so -o liblinked_list_library.so CMakeFiles/linked_list_library.dir/Auto.c.o 

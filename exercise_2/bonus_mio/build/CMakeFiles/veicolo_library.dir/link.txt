@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libveicolo_library.so -o libveicolo_library.so CMakeFiles/veicolo_library.dir/Veicolo.c.o CMakeFiles/veicolo_library.dir/Automobile.c.o CMakeFiles/veicolo_library.dir/Camion.c.o CMakeFiles/veicolo_library.dir/ParcoAuto.c.o 

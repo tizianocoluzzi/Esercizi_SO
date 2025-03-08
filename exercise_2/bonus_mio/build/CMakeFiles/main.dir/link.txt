@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/main.dir/main.c.o -o main  -Wl,-rpath,/home/tiziano/SO/esercitazioni_SO/exercise_2/bonus_mio/build libveicolo_library.so 
