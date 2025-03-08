@@ -10,6 +10,11 @@
 void IntPrint(ListItem* item);
 void FloatPrint(ListItem* item);
 void PolPrint(ListItem* item);
+
+void IntDtor(ListItem* item);
+void FloatDtor(ListItem* item);
+void PolDtor(ListItem* item);
+
 //TODO implementare gestione della memoria, quindi distruttori e rendere tutto valgrind proof
 //istanze delle VMT delle tre classi
 ListItemOps ops_int;
@@ -20,11 +25,11 @@ int main(){
     //le tre funzioni di stampa principale
     //non ho implementato i distruttori
     ops_int.print_fn = IntPrint;
-    ops_int.dtor_fn = NULL;
+    ops_int.dtor_fn = IntDtor;
     ops_float.print_fn = FloatPrint;
-    ops_float.dtor_fn = NULL;
+    ops_float.dtor_fn = FloatDtor;
     ops_pol.print_fn = PolPrint;
-    ops_pol.dtor_fn = NULL;
+    ops_pol.dtor_fn = PolDtor;
     //piccola prova per vedere se andava tutto
     //lista madre
     ListHead capoccia; 
@@ -53,6 +58,8 @@ int main(){
     itemp->value = &h;
     List_insert(&capoccia, 0,(ListItem*) itemp);
     List_print(&capoccia);
+    ListItem_destroy(capoccia.first);
+    
 }
 void IntPrint(ListItem* item){
     IntListItem* i = (IntListItem*) item;
@@ -66,3 +73,20 @@ void PolPrint(ListItem* item){
     PolListItem* i = (PolListItem*) item;
     List_print(i->value);
 }
+
+void IntDtor(ListItem* item){
+    IntListItem* i = (IntListItem*) item;
+    free(i);
+}
+void FloatDtor(ListItem* item){
+    FloatListItem* i = (FloatListItem*) item;
+    free(i);
+}
+void PolDtor(ListItem* item){
+    ListHead* h = ((PolListItem*)item)->value;
+    while(h->first){
+        IntListItem* app =(IntListItem*) List_detach(h, h->first);
+        ListItem_destroy((ListItem*) app); 
+    }
+}
+
