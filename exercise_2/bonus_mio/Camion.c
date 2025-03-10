@@ -7,7 +7,7 @@
 #include "common.h"
 
 //funzioni private che vengono chiamate solo all'interno del file
-void Camion_destructor_function(Camion* a);
+void Camion_destructor_function(Camion** a);
 void Camion_print_function(Camion* a);
 void Camion_clacson_function(Camion* a);
 
@@ -32,15 +32,16 @@ Camion* Camion_constructor(const char* nome, const char* targa, int altezza){
     return a;
 }
 //è uguale a quello del veicolo, questa cosa non va molto bene ma al momento è cosi
-void Camion_destructor_function(Camion* a){
-    free(a->veicolo.nome);
-    free(a->veicolo.targa);
-    free(a);
+void Camion_destructor_function(Camion** a){
+    free((*a)->veicolo.nome);
+    free((*a)->veicolo.targa);
+    free(*a);
+    *a = NULL;
 }
 void Camion_print_function(Camion* a){
     assert(a);
     assert(a->veicolo.targa && a->veicolo.nome);
-    printf("Camion di: %s targa: %s, altezza: %d", a->veicolo.nome, a->veicolo.targa, a->altezza);
+    printf("Camion di: %s targa: %s, altezza: %d\n", a->veicolo.nome, a->veicolo.targa, a->altezza);
 }
 
 void Camion_clacson_function(Camion* a){

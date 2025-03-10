@@ -6,7 +6,7 @@
 #include "common.h"
 
 
-void Veicolo_destructor_function(Veicolo* a);
+void Veicolo_destructor_function(Veicolo** a);
 void Veicolo_print_function(Veicolo* a);
 void Veicolo_clacson_function(Veicolo* a);
 
@@ -29,10 +29,13 @@ Veicolo* Veicolo_constructor(const char* nome, const char* targa){
     a->veicolo_ops = &veicolo_ops;
     return a;
 }
-void Veicolo_destructor_function(Veicolo* a){
-    free(a->nome);
-    free(a->targa);
-    free(a);
+void Veicolo_destructor_function(Veicolo** a){
+    free((*a)->nome);
+    //a->nome = NULL;
+    free((*a)->targa);
+    //a->targa = NULL;
+    free(*a);
+    *a = NULL;
 }
 void Veicolo_print_function(Veicolo* a){
     printf("Veicolo di: %s targa: %s\n", a->nome, a->targa);
@@ -41,20 +44,22 @@ void Veicolo_clacson_function(Veicolo* a){
     printf("NON DISPONIBILE PER LE AUTO GENERICHE\n");
 }
 //metodi generici
-void Veicolo_destructor(Veicolo* a){
-    assert(a);
-    assert(a->veicolo_ops && a->veicolo_ops->dtor);
-    (*a->veicolo_ops->dtor)(a);
+//ho messo il cast a struct giusto perevitare i warning
+void Veicolo_destructor(Veicolo** a){
+    assert(*a);
+    assert((*a)->veicolo_ops && (*a)->veicolo_ops->dtor);
+    ((*a)->veicolo_ops->dtor)((struct Veicolo**)a);
+    printf("%p\n", *a);
 }
 
 void Veicolo_print(Veicolo* a){
     assert(a);
     assert(a->veicolo_ops && a->veicolo_ops->print);
-    (*a->veicolo_ops->print)(a); 
+    (*a->veicolo_ops->print)((struct Veicolo*)a); 
 }
 void Veicolo_clacson(Veicolo* a){
     assert(a);
     assert(a->veicolo_ops && a->veicolo_ops->clacson);
-    (*a->veicolo_ops->clacson)(a);
+    (*a->veicolo_ops->clacson)((struct Veicolo*)a);
 }
 

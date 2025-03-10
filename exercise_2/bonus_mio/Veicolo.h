@@ -5,7 +5,7 @@
 //come dice il prof, forward declaraion to shut the compiler
 struct Veicolo;
 //definizione dei tipi delle funzioni 
-typedef void (*Veicolo_dtorfn)(struct Veicolo*);
+typedef void (*Veicolo_dtorfn)(struct Veicolo**);
 typedef void (*Veicolo_printfn)(struct Veicolo*);
 typedef void (*Veicolo_clacsonfn)(struct Veicolo*);
 
@@ -23,7 +23,7 @@ typedef struct{
 } Veicolo;
 
 //metodi della classe Veicolo
-void Veicolo_destructor(Veicolo* a);
+void Veicolo_destructor(Veicolo** a);
 void Veicolo_print(Veicolo* a);
 void Veicolo_clacson(Veicolo* a);
 Veicolo* Veicolo_constructor(const char* nome, const char* targa);

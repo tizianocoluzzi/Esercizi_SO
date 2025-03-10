@@ -10,7 +10,7 @@ typedef struct ParcoAuto{
 
 ParcoAuto* Parco_constructor(const char* nome, int totali);
 
-void Parco_distruttore(ParcoAuto* parco);
+void Parco_distruttore(ParcoAuto** parco);
 
 int Parco_aggiungiVeicolo(ParcoAuto* parco, Veicolo* veicolo);
 int Parco_rimuoviVeicolo(ParcoAuto* parco, Veicolo* veicolo);

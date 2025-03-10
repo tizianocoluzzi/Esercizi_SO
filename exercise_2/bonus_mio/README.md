@@ -44,9 +44,11 @@ classe Camion eredita Veicolo:
     - SuonoClacson
 ## Realizzazione
 Strutture dati: considerando che non sono necessarie operazioni particolari e sopratutto non è richiesta efficienza(grazie l'ho fatto io), per evitare di inserire altre librerie(potrei copiare quelle che ho gia in realtà) utilizzo un semplice array, questo rende inserimento e rimozione molto meno efficienti O(n) ma tanto èun parco auto piccolo
-
 >N.B. potrei cambiare
+
+Il metodo distruttore è stato realizzato passando come parametro un puntatore al puntatore dell'oggetto, per poter sfruttare il double pointer method e poiter settare il puntatore a NULL
 ## Struttra del progetto
-poi vedo bene
+senza particolari fronzoli, le classi sono tutte nel folder principale
+la cartella build è la cartella in cui è presente l'eseguibile main, costruito tramite cmake e make 
 
 
