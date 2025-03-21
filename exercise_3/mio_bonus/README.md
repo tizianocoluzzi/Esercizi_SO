@@ -11,7 +11,7 @@ che puo essere collegata ad un output, come un buzzer o un LED
 - Clk portK pin 1 (A8)
 - Dt portK pin 2 (A9)
 - USCITA portB 7 (13)
-[schema_encoder.jpg]
+![schema_encoder.jpg](https://github.com/tizianocoluzzi/Esercizi_SO/exercise_3/mio_bonus/schema_encoder.jpg "schema")
 ### radar_pwmOut.c
 #### Descrizione
 L'esercizio si basa sulla ricezione di un segnale da un sensore ad ultrasuoni, 
@@ -24,4 +24,4 @@ Questo gestisce in output l'intensità di una pwm, come nell'esercizio precedent
 - Trig portK pin 1 (A8)
 - Echo portK pin 2 (A9)
 - USCITA portB 7 (13)
-[schema_radar.jpg]
+![schema_radar.jpg](https://github.com/tizianocoluzzi/Esercizi_SO/exercise_3/mio_bonus/schema_radar.jpg "schema")
